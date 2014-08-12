@@ -177,6 +177,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="CodeTemplates\AddController\Controller.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Create.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Delete.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Details.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Edit.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Empty.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\List.tt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
