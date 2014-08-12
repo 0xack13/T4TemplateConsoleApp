@@ -43,7 +43,8 @@ namespace CustomerT4ConsoleApp
             
             #line default
             #line hidden
-            this.Write("!\r\n\r\nPlease be sure to come back again soon!\r\n\r\nThe Email Generation Co.");
+            this.Write("!\r\n\r\nPlease be sure to come back again soon!\r\n\r\nThe Email Generation Co.\r\n\r\nSee y" +
+                    "ou!");
             return this.GenerationEnvironment.ToString();
         }
         
