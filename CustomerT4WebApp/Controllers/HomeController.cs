@@ -30,6 +30,19 @@ namespace CustomerT4WebApp.Controllers
             return View();
         }
 
+        public ActionResult OrderList()
+        {
+            List<Order> c = new List<Order>();
+            c.Add(new Order
+            {
+                orderNum = 2,
+                orderName = "Saleh"
+            });
+            ViewBag.Message = "Your contact page.";
+
+            return View(c);
+        }
+
         public ActionResult customerList()
         {
             List<Customer> c = new List<Customer>();

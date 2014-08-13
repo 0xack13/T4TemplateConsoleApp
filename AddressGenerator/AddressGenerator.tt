@@ -1,0 +1,103 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".txt" #>
+
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+
+<#
+	Server = @"localhost\SQLSERVER14";
+	Database = "SpineMetadata";
+	IntegratedSecurity = true;
+	Table = "AddressTypes";
+	ValueColumn = "code";
+	TextColumn = "name";
+#>
+
+public enum <#= CreateValidateIdentifier(Table) #>
+{
+<#
+	if(Validate())
+    {
+		BuildEnum();
+    }
+#>
+}
+
+<#+
+
+private bool Validate() {
+	if (string.IsNullOrEmpty(Server)) { Error("No server was specified"); }
+	if (string.IsNullOrEmpty(Database)) { Error("No database was specified"); }
+	
+	if (!IntegratedSecurity) {
+		if (string.IsNullOrEmpty(User)) { Error("No user id was specified"); }
+		if (string.IsNullOrEmpty(Pws)) { Error("No password was specified"); }
+	}
+
+	if (string.IsNullOrEmpty(Table)) { Error("No table was specified"); }
+	if (string.IsNullOrEmpty(ValueColumn)) { Error("No value column was specified"); }
+	if (string.IsNullOrEmpty(TextColumn)) { Error("No text column was specified"); }
+
+	return !this.Errors.HasErrors;
+}
+
+private void BuildEnum() {
+	using (SqlConnection conn = new SqlConnection(BuildConnStr())) {
+		SqlCommand cmd = conn.CreateCommand();
+		cmd.CommandText = string.Format("select {0}, {1} from {2}",
+			ValueColumn, TextColumn, Table);
+		cmd.CommandType = System.Data.CommandType.Text;
+
+		conn.Open();
+		SqlDataReader rdr = cmd.ExecuteReader();
+
+		PushIndent("\t");
+
+		while(rdr.Read()) {
+			string enm = string.Format("{0} = {1},",
+				CreateValidateIdentifier(rdr[TextColumn].ToString()), rdr[ValueColumn].ToString());
+			WriteLine(enm);
+        }
+
+		WriteLine("Void = 0");
+		PopIndent();
+
+		rdr.Close();
+		conn.Close();
+    }
+}
+
+private string CreateValidateIdentifier(string input) {
+	string pattern = @"[\.\[\]\s]";
+
+	Regex regex = new Regex(pattern, RegexOptions.None);
+	return regex.Replace(input, "");
+}
+
+private string BuildConnStr() {
+	SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
+	csb.DataSource = Server;
+	csb.InitialCatalog = Database;
+	csb.IntegratedSecurity = IntegratedSecurity;
+	if(!IntegratedSecurity) {
+		csb.UserID = User;
+		csb.Password = Pws;
+    }
+	return csb.ConnectionString;
+}
+
+private string Server;
+private string Database;
+private bool IntegratedSecurity;
+private string User;
+private string Pws;
+private string Table;
+private string ValueColumn;
+private string TextColumn;
+
+#>

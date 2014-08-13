@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4DD9AE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerT4WebApp", "CustomerT4WebApp\CustomerT4WebApp.csproj", "{D5ADBACB-648E-48FD-9F41-6C3D916D5B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressGenerator", "AddressGenerator\AddressGenerator.csproj", "{A260C415-5521-42AC-BD6A-1312B4B0DD0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{D5ADBACB-648E-48FD-9F41-6C3D916D5B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5ADBACB-648E-48FD-9F41-6C3D916D5B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5ADBACB-648E-48FD-9F41-6C3D916D5B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A260C415-5521-42AC-BD6A-1312B4B0DD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A260C415-5521-42AC-BD6A-1312B4B0DD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A260C415-5521-42AC-BD6A-1312B4B0DD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A260C415-5521-42AC-BD6A-1312B4B0DD0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
