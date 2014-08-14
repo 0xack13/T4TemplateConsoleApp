@@ -11,7 +11,7 @@
 
 <#
 	Server = @"localhost\SQLSERVER14";
-	Database = "SpineMetadata";
+	Database = "AppMetadata";
 	IntegratedSecurity = true;
 	Table = "AddressTypes";
 	TextColumn = "name";
