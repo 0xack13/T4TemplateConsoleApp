@@ -5,7 +5,7 @@ public enum AddressTypes
 {
 	Allocated = 100       ,
 	Picked = 200       ,
-	Packed = 300       ,
+	PackedWow = 300       ,
 	Shipped = 400       ,
 	Received = 500       ,
 	Delivered = 709       ,

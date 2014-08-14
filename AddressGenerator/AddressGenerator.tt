@@ -14,8 +14,8 @@
 	Database = "SpineMetadata";
 	IntegratedSecurity = true;
 	Table = "AddressTypes";
-	ValueColumn = "code";
 	TextColumn = "name";
+	ValueColumn = "code";
 #>
 
 public enum <#= CreateValidateIdentifier(Table) #>
