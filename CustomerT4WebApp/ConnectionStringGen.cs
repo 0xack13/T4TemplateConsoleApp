@@ -15,4 +15,8 @@ public static class ConnectionStrings
 	{
 		get { return ConfigurationManager.ConnectionStrings["MainConnectionString"].ConnectionString; }
 	}
+	public static string Demo
+	{
+		get { return ConfigurationManager.ConnectionStrings["Demo"].ConnectionString; }
+	}
 }

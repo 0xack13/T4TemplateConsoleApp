@@ -13,7 +13,7 @@ namespace CustomerT4WebApp.Controllers
         {
 
 
-            ViewBag.Message = ConnectionStrings.DefaultConnection;
+            ViewBag.Message = ConnectionStrings.Demo;
 
             return View();
         }
